@@ -1,0 +1,111 @@
+import java.util.ArrayList;
+
+public class Recursion
+{
+	/**
+	 * factorialIterative.
+	 * 
+	 * Calculate the factorial of a number 
+	 * using iteration. 
+	 * @param n the argument for which to calculate the factorial
+	 * @return the result of the calculation
+	 */
+	public static int factorialIterative(int n)
+	{
+		int result = n;
+		for(int i= n-1; i>0; i--)
+		{
+		
+			result = result*i; 
+		}
+	
+		return result; 
+		
+	}
+	
+	/**
+	 * factorialRecursive.
+	 * 
+	 * Calculate the factorial of a number 
+	 * using recursion.
+	 * @param n the argument for which to calculate the factorial
+	 * @return the result of the calculation
+	 */
+	public static int factorialRecursive(int n)
+	{
+		if(n==1)
+		{
+			return 1;
+		}
+		else
+		{
+			return factorialRecursive(n-1) * n; 
+	
+		}
+	}
+	
+	/**
+	 * powerRecursive.
+	 * @param base the base to multiply
+	 * @param exponent the number of times to multiply it by itself
+	 * @return the result of the calculation
+	 */
+	public static int powerRecursive(int base, int exponent)
+	{
+		if(exponent==0)
+		{
+			return 1;
+		}
+		else
+		{
+			return(base*powerRecursive(base, exponent -1));
+		}
+
+		
+	}
+	
+	/**
+	 * reverseStringRecursive.
+	 * @param input the String to reverse
+	 * @return the reversed String
+	 */
+	public static String reverseStringRecursive(String input)
+	{
+		if(input.length() ==1 )
+		{
+		return input; 
+		}
+		else
+		{
+			return (input.charAt(input.length()-1) + reverseStringRecursive(input.substring(0, input.length()-1)));
+		}
+		
+		
+	}
+	
+	/**
+	 * getAllFactorsRecursive.
+	 * 
+	 * Calculate all POSITIVE INTEGER factors
+	 * for a given number. Factors are numbers
+	 * that evenly divide another number.
+	 * @param base the number for which you want to calculate all factors
+	 * @param currentFactor the current factor to test
+	 * @return an ArrayList containing all positive factors of base
+	 */
+	public static ArrayList<Integer> getAllFactorsRecursive(int base, int currentFactor)
+	{
+		ArrayList<Integer> result = new ArrayList<Integer>(); 	
+		if (currentFactor > 1)
+		{
+		   result =  getAllFactorsRecursive(base, currentFactor-1);
+		
+		} 		
+		if (base%currentFactor == 0)
+		{
+			result.add(currentFactor);
+		}
+		return result;
+		
+	}
+}
